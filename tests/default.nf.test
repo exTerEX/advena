@@ -1,10 +1,12 @@
-nextflow_process {
+nextflow_pipeline {
 
     name "Test pipeline default execution"
     script "../main.nf"
     profile "test"
 
     test("Should run with stub") {
+        options "-stub-run"
+
         when {
             params {
                 outdir = "$outputDir"

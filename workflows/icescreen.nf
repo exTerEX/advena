@@ -31,7 +31,10 @@ workflow ICESCREEN {
         .splitCsv(header: true, strip: true)
         .map { row ->
             def meta = [id: row.sample]
-            def genbank = file(row.genbank, checkIfExists: true)
+            def samplesheet_dir = file(params.input).parent
+            def genbank = row.genbank.startsWith("/")
+                ? file(row.genbank, checkIfExists: true)
+                : file("${samplesheet_dir}/${row.genbank}", checkIfExists: true)
             [meta, genbank]
         }
         .set { ch_input }

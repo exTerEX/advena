@@ -50,11 +50,11 @@ jobs:
           version: "0.9.5"
 
       - name: Run nf-test
-        run: nf-test test tests/modules/ --verbose
+        run: nf-test test tests/ --verbose
 
       - name: Upload nf-test logs on failure
         if: failure()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: nf-test-logs
           path: .nf-test/
