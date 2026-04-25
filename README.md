@@ -1,22 +1,15 @@
 # advena
 
-**advena** is a Nextflow pipeline for ICEscreen: detection and annotation of Integrative and
-Conjugative Elements (ICEs) and Integrative and Mobilizable Elements (IMEs) in Bacillota genomes.
+**advena** is a Nextflow pipeline for ICEscreen: detection and annotation of Integrative and Conjugative Elements (ICEs)
+and Integrative and Mobilizable Elements (IMEs) in Bacillota genomes.
 
-This pipeline is a Nextflow DSL2 reimplementation of the original
-[ICEscreen](https://github.com/ICEscreen/ICEscreen) Snakemake pipeline. It accesses the ICEscreen
-Python scripts and databases via Docker or conda, keeping this repository focused solely on workflow
-orchestration.
+This pipeline is a Nextflow DSL2 reimplementation of the original [ICEscreen](https://github.com/ICEscreen/ICEscreen)
+Snakemake pipeline, orchestrating the ICEscreen Python scripts and databases via Docker or Conda.
 
 ## Features
 
-- Parallel BLASTP searches against 7 signature protein databases
-- HMM profile scanning against ~20 signature protein profiles
-- False positive screening with dedicated FP HMM profiles
-- XerS re-annotation and integrase classification
-- ICE/IME structure detection and assembly
-- Annotated output in GFF3, EMBL, and GenBank formats
-- Intermediate file archive with full run parameter summary
+- ICE/IME structure detection and boundary assembly using the original
+  [ICEscreen](https://github.com/ICEscreen/ICEscreen) logic
 - Support for Docker, Singularity, Apptainer, Podman, and Conda
 
 ## Requirements
@@ -40,10 +33,10 @@ See the [documentation](https://exterex.github.io/advena) for full details.
 
 A CSV samplesheet with one row per genome:
 
-| Column    | Description                    |
-| --------- | ------------------------------ |
-| `sample`  | Sample identifier (unique)     |
-| `genbank` | Path to GenBank file (`.gb`)   |
+| Column    | Description                  |
+| --------- | ---------------------------- |
+| `sample`  | Sample identifier (unique)   |
+| `genbank` | Path to GenBank file (`.gb`) |
 
 ```csv
 sample,genbank
@@ -53,18 +46,18 @@ genome_B,/path/to/genome_B.gb
 
 ## Parameters
 
-| Parameter                    | Default     | Description                                    |
-| ---------------------------- | ----------- | ---------------------------------------------- |
-| `--input`                    | (required)  | Path to samplesheet CSV                        |
-| `--outdir`                   | `results`   | Output directory                               |
-| `--phylum`                   | `bacillota` | Taxonomic phylum                               |
-| `--codon_table`              | `11`        | Genetic code for CDS translation               |
-| `--icescreen_root`           | auto-detect | Path to ICEscreen installation                 |
-| `--icescreen_db`             | `null`      | Override path to pre-indexed databases         |
-| `--blastp_evalue`            | `0.001`     | E-value threshold for BLASTP                   |
-| `--blastp_max_target_seqs`   | `10`        | Max target sequences per BLASTP query          |
-| `--min_cds_between_segments` | `100`       | Min CDS count between mobile element segments  |
-| `--max_cds_for_ime_size`     | `10`        | Max CDS count for IME size classification      |
+| Parameter                    | Default     | Description                                   |
+| ---------------------------- | ----------- | --------------------------------------------- |
+| `--input`                    | (required)  | Path to samplesheet CSV                       |
+| `--outdir`                   | `results`   | Output directory                              |
+| `--phylum`                   | `bacillota` | Taxonomic phylum                              |
+| `--codon_table`              | `11`        | Genetic code for CDS translation              |
+| `--icescreen_root`           | auto-detect | Path to ICEscreen installation                |
+| `--icescreen_db`             | `null`      | Override path to pre-indexed databases        |
+| `--blastp_evalue`            | `0.001`     | E-value threshold for BLASTP                  |
+| `--blastp_max_target_seqs`   | `10`        | Max target sequences per BLASTP query         |
+| `--min_cds_between_segments` | `100`       | Min CDS count between mobile element segments |
+| `--max_cds_for_ime_size`     | `10`        | Max CDS count for IME size classification     |
 
 ## Output
 
@@ -124,8 +117,8 @@ graph LR
 
 If you use this pipeline, please cite:
 
-> Lao, J., Lacroix, T., Guedon, G., et al. ICEscreen: a tool to detect Firmicute ICEs and IMEs,
-> isolated or integrated in genomes. _NAR Genomics and Bioinformatics_, 2024.
+> Lao, J., Lacroix, T., Guedon, G., et al. ICEscreen: a tool to detect Firmicute ICEs and IMEs, isolated or integrated
+> in genomes. _NAR Genomics and Bioinformatics_, 2024.
 
 See [CITATIONS.md](CITATIONS.md) for a complete list of tools used by this pipeline.
 

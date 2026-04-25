@@ -1,11 +1,10 @@
 # advena
 
-**advena** is a Nextflow pipeline for ICEscreen: detection and annotation of Integrative and
-Conjugative Elements (ICEs) and Integrative and Mobilizable Elements (IMEs) in Bacillota genomes.
+**advena** is a Nextflow pipeline for ICEscreen: detection and annotation of Integrative and Conjugative Elements (ICEs)
+and Integrative and Mobilizable Elements (IMEs) in Bacillota genomes.
 
-This pipeline is a Nextflow DSL2 reimplementation of the original
-[ICEscreen](https://github.com/ICEscreen/ICEscreen) Snakemake pipeline, orchestrating the ICEscreen
-Python scripts and databases via Docker or Conda.
+This pipeline is a Nextflow DSL2 reimplementation of the original [ICEscreen](https://github.com/ICEscreen/ICEscreen)
+Snakemake pipeline, orchestrating the ICEscreen Python scripts and databases via Docker or Conda.
 
 ---
 
@@ -33,7 +32,8 @@ graph LR
 
 ## Features
 
-- ICE/IME structure detection and boundary assembly using the original [ICEscreen](https://github.com/ICEscreen/ICEscreen) logic
+- ICE/IME structure detection and boundary assembly using the original
+  [ICEscreen](https://github.com/ICEscreen/ICEscreen) logic
 - Support for Docker, Singularity, Apptainer, Podman, and Conda
 
 ---

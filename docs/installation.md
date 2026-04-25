@@ -25,8 +25,8 @@ Add the `nextflow` binary to your `PATH`, or move it to a location already on it
 
 ## 2. Install a container engine
 
-advena requires access to the ICEscreen software environment. The recommended approach is Docker or
-Singularity with the pre-built container.
+advena requires access to the ICEscreen software environment. The recommended approach is Docker or Singularity with the
+pre-built container.
 
 === "Docker"
 
@@ -52,9 +52,8 @@ Singularity with the pre-built container.
 
 ## 3. Install ICEscreen
 
-advena calls ICEscreen Python scripts and databases at runtime. Point the pipeline to an ICEscreen
-installation by setting the `ICESCREEN_ROOT` environment variable or the `--icescreen_root`
-parameter.
+advena calls ICEscreen Python scripts and databases at runtime. Point the pipeline to an ICEscreen installation by
+setting the `ICESCREEN_ROOT` environment variable or the `--icescreen_root` parameter.
 
 ```bash
 # Clone the ICEscreen repository
@@ -64,8 +63,8 @@ git clone https://github.com/ICEscreen/ICEscreen.git /opt/icescreen
 export ICESCREEN_ROOT=/opt/icescreen
 ```
 
-If `ICESCREEN_ROOT` is not set, advena falls back to `~/repo/icescreen` then `/opt/icescreen`. If
-the databases are stored separately, override the database path with `--icescreen_db`.
+If `ICESCREEN_ROOT` is not set, advena falls back to `~/repo/icescreen` then `/opt/icescreen`. If the databases are
+stored separately, override the database path with `--icescreen_db`.
 
 ---
 

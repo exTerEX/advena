@@ -32,14 +32,12 @@ Results are written to `<outdir>/<sample>/` for each sample:
 
 ### `<sample>_detected_ME.tsv`
 
-Tab-separated table of detected ICE and IME structures. Each row represents one mobile element,
-with columns for genomic coordinates, element type, boundary signature proteins, and associated
-CDS.
+Tab-separated table of detected ICE and IME structures. Each row represents one mobile element, with columns for genomic
+coordinates, element type, boundary signature proteins, and associated CDS.
 
 ### `<sample>_detected_ME.summary`
 
-Human-readable summary of detection results: counts of detected ICEs, IMEs, and unclassified
-elements per replicon.
+Human-readable summary of detection results: counts of detected ICEs, IMEs, and unclassified elements per replicon.
 
 ### `<sample>_detected_SP_withMEIds.tsv`
 
@@ -51,13 +49,13 @@ Signature protein table annotated with the mobile element ID to which each prote
 
 All annotation files are gzip-compressed.
 
-| File                          | Format  | Contents                                      |
-| ----------------------------- | ------- | --------------------------------------------- |
-| `<sample>_icescreen.gff.gz`   | GFF3    | ICE/IME features overlaid on the source GFF3  |
-| `<sample>_icescreen.embl.gz`  | EMBL    | ICE/IME features in EMBL flat-file format     |
-| `<sample>_icescreen.gb.gz`    | GenBank | ICE/IME features in GenBank flat-file format  |
-| `<sample>_source.fa.gz`       | FASTA   | Genome nucleotide sequence                    |
-| `<sample>_source.gff.gz`      | GFF3    | Source genome annotation (CDS features)       |
+| File                         | Format  | Contents                                     |
+| ---------------------------- | ------- | -------------------------------------------- |
+| `<sample>_icescreen.gff.gz`  | GFF3    | ICE/IME features overlaid on the source GFF3 |
+| `<sample>_icescreen.embl.gz` | EMBL    | ICE/IME features in EMBL flat-file format    |
+| `<sample>_icescreen.gb.gz`   | GenBank | ICE/IME features in GenBank flat-file format |
+| `<sample>_source.fa.gz`      | FASTA   | Genome nucleotide sequence                   |
+| `<sample>_source.gff.gz`     | GFF3    | Source genome annotation (CDS features)      |
 
 ---
 
@@ -65,8 +63,8 @@ All annotation files are gzip-compressed.
 
 ### `<sample>_detected_SP.tsv`
 
-Final table of signature proteins after false positive removal and XerS re-annotation. Each row
-is one detected signature protein with its type, locus tag, replicon, and position.
+Final table of signature proteins after false positive removal and XerS re-annotation. Each row is one detected
+signature protein with its type, locus tag, replicon, and position.
 
 ---
 
@@ -74,15 +72,15 @@ is one detected signature protein with its type, locus tag, replicon, and positi
 
 ### `tmp_intermediate_files.tar.gz`
 
-Archive of all intermediate analysis files, organised to mirror the original ICEscreen directory
-structure under `results/<sample>/`. Includes BLASTP output per database, HMM scan output per
-profile, filtered results, merged SP tables, FP screening results, and re-annotation files.
+Archive of all intermediate analysis files, organised to mirror the original ICEscreen directory structure under
+`results/<sample>/`. Includes BLASTP output per database, HMM scan output per profile, filtered results, merged SP
+tables, FP screening results, and re-annotation files.
 
 ### `param.conf.gz`
 
-Gzip-compressed parameter summary combining the ICEscreen detection log (search thresholds, counts
-of detected elements) with the full detection mode configuration (from the ICEscreen mode YAML
-file). Mirrors the `param.conf` output of the original Snakemake pipeline.
+Gzip-compressed parameter summary combining the ICEscreen detection log (search thresholds, counts of detected elements)
+with the full detection mode configuration (from the ICEscreen mode YAML file). Mirrors the `param.conf` output of the
+original Snakemake pipeline.
 
 ---
 
@@ -90,9 +88,9 @@ file). Mirrors the `param.conf` output of the original Snakemake pipeline.
 
 Nextflow execution reports written to `pipeline_info/`:
 
-| File                              | Contents                                    |
-| --------------------------------- | ------------------------------------------- |
-| `execution_report_<ts>.html`      | Per-task resource usage and status          |
-| `execution_timeline_<ts>.html`    | Gantt chart of task execution timing        |
-| `execution_trace_<ts>.txt`        | Tab-separated task metadata                 |
-| `pipeline_dag_<ts>.html`          | Directed acyclic graph of the workflow      |
+| File                           | Contents                               |
+| ------------------------------ | -------------------------------------- |
+| `execution_report_<ts>.html`   | Per-task resource usage and status     |
+| `execution_timeline_<ts>.html` | Gantt chart of task execution timing   |
+| `execution_trace_<ts>.txt`     | Tab-separated task metadata            |
+| `pipeline_dag_<ts>.html`       | Directed acyclic graph of the workflow |

@@ -1,7 +1,7 @@
 # Contributing
 
-Contributions are welcome. This document describes how to set up a development environment and the
-conventions the project follows.
+Contributions are welcome. This document describes how to set up a development environment and the conventions the
+project follows.
 
 ---
 
@@ -58,8 +58,7 @@ pre-commit run --all-files
 nextflow run . -profile conda,test -stub-run
 ```
 
-All 34 processes should complete successfully. This validates the channel topology without executing
-any real tools.
+All 34 processes should complete successfully. This validates the channel topology without executing any real tools.
 
 ### Full pipeline test
 
