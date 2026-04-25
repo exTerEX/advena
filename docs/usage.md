@@ -15,7 +15,8 @@ GCF_003176835,/data/GCF_003176835.gbff
 | `sample`  | Unique sample identifier used in all output filenames |
 | `genbank` | Path to a GenBank file (`.gb` or `.gbff`)             |
 
-An example samplesheet is provided in [`assets/samplesheet.csv`](https://github.com/exterex/advena/blob/main/assets/samplesheet.csv).
+An example samplesheet is provided in
+[`assets/samplesheet.csv`](https://github.com/exterex/advena/blob/main/assets/samplesheet.csv).
 
 ---
 
@@ -59,31 +60,30 @@ advena reads the ICEscreen Python scripts and databases at runtime. There are th
 
 1. **Environment variable (recommended)**: Set `ICESCREEN_ROOT` before running the pipeline.
 
-   ```bash
-   export ICESCREEN_ROOT=/opt/icescreen
-   nextflow run exterex/advena --input samplesheet.csv --outdir results -profile docker
-   ```
+```bash
+export ICESCREEN_ROOT=/opt/icescreen
+nextflow run exterex/advena --input samplesheet.csv --outdir results -profile docker
+```
 
 2. **Pipeline parameter**: Pass `--icescreen_root` directly.
 
-   ```bash
-   nextflow run exterex/advena \
-       --input samplesheet.csv \
-       --outdir results \
-       --icescreen_root /opt/icescreen \
-       -profile docker
-   ```
+```bash
+nextflow run exterex/advena \
+  --input samplesheet.csv \
+  --outdir results \
+  --icescreen_root /opt/icescreen \
+  -profile docker
+```
 
-3. **Override database path**: If the databases are stored separately from the scripts, use `--icescreen_db` to override
-   only the database path.
+1. **Override database path**: If the databases are stored separately from the scripts, use `--icescreen_db` to override only the database path.
 
-   ```bash
-   nextflow run exterex/advena \
-       --input samplesheet.csv \
-       --outdir results \
-       --icescreen_db /data/icescreen_databases \
-       -profile docker
-   ```
+```bash
+nextflow run exterex/advena \
+  --input samplesheet.csv \
+  --outdir results \
+  --icescreen_db /data/icescreen_databases \
+  -profile docker
+```
 
 ---
 
