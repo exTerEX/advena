@@ -1,0 +1,25 @@
+name: Linting
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  EditorConfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: editorconfig-checker/action-editorconfig-checker@v2
+      - run: editorconfig-checker
+
+  Prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+      - run: npx prettier --check .

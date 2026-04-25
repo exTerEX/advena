@@ -1,0 +1,18 @@
+nextflow_process {
+
+    name "Test pipeline default execution"
+    script "../main.nf"
+    profile "test"
+
+    test("Should run with stub") {
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+        }
+    }
+}

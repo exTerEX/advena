@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/exterex/nextflow-icescreen/main/nextflow_schema.json",
+  "title": "nextflow-icescreen pipeline parameters",
+  "description": "Nextflow pipeline for ICEscreen: detection and annotation of ICEs and IMEs in Bacillota genomes",
+  "type": "object",
+  "$defs": {
+    "input_output_options": {
+      "title": "Input/output options",
+      "type": "object",
+      "description": "Define where the pipeline should find input data and save output data.",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Path to comma-separated file containing information about the samples in the experiment.",
+          "format": "file-path",
+          "pattern": "^\\S+\\.csv$"
+        },
+        "outdir": {
+          "type": "string",
+          "description": "The output directory where the results will be saved.",
+          "default": "results",
+          "format": "directory-path"
+        }
+      },
+      "required": ["input"]
+    },
+    "icescreen_options": {
+      "title": "ICEscreen options",
+      "type": "object",
+      "description": "Parameters for the ICEscreen detection pipeline.",
+      "properties": {
+        "phylum": {
+          "type": "string",
+          "description": "Taxonomic phylum for the analysis.",
+          "default": "bacillota",
+          "enum": ["bacillota"]
+        },
+        "codon_table": {
+          "type": "integer",
+          "description": "Genetic code table for CDS translation.",
+          "default": 11
+        },
+        "icescreen_db": {
+          "type": "string",
+          "description": "Path to pre-indexed ICEscreen databases. If null, uses databases bundled in the container.",
+          "format": "directory-path"
+        }
+      }
+    },
+    "blast_options": {
+      "title": "BLAST options",
+      "type": "object",
+      "description": "Parameters for BLASTP signature protein searches.",
+      "properties": {
+        "blastp_evalue": {
+          "type": "number",
+          "description": "E-value threshold for BLASTP searches.",
+          "default": 0.001
+        },
+        "blastp_max_target_seqs": {
+          "type": "integer",
+          "description": "Maximum number of target sequences per BLASTP query.",
+          "default": 10
+        }
+      }
+    },
+    "me_detection_options": {
+      "title": "Mobile element detection options",
+      "type": "object",
+      "description": "Parameters for ICE/IME structure detection.",
+      "properties": {
+        "min_cds_between_segments": {
+          "type": "integer",
+          "description": "Minimum number of CDS between mobile element segments.",
+          "default": 100
+        },
+        "max_cds_for_ime_size": {
+          "type": "integer",
+          "description": "Maximum number of CDS for IME size classification.",
+          "default": 10
+        }
+      }
+    },
+    "generic_options": {
+      "title": "Generic options",
+      "type": "object",
+      "description": "Less common options for the pipeline.",
+      "properties": {
+        "publish_dir_mode": {
+          "type": "string",
+          "description": "Method used to save pipeline results to output directory.",
+          "default": "copy",
+          "enum": ["copy", "symlink", "move", "rellink", "link"]
+        },
+        "monochrome_logs": {
+          "type": "boolean",
+          "description": "Do not use coloured log outputs.",
+          "default": false
+        },
+        "help": {
+          "type": "boolean",
+          "description": "Display help text.",
+          "default": false
+        },
+        "version": {
+          "type": "boolean",
+          "description": "Display version.",
+          "default": false
+        }
+      }
+    }
+  }
+}
