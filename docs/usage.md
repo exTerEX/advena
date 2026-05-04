@@ -75,7 +75,7 @@ nextflow run exterex/advena \
   -profile docker
 ```
 
-1. **Override database path**: Use `--icescreen_db` to override database path.
+3. **Override database path**: Use `--icescreen_db` to override database path.
 
 ```bash
 nextflow run exterex/advena \
